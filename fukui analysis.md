@@ -60,20 +60,32 @@ Selected high-engagement Xiaohongshu posts about Fukui, including comment sectio
 
 ## China visitor spending insights
 
-Based on Japanese inbound tourism expenditure data for Chinese visitors (Mainland China and Hong Kong combined as a single China market):
+Based on Japanese inbound tourism expenditure data and the chart summarizing 2024 spending, the China market (Mainland China + Hong Kong combined) is the top contributor to Japan inbound consumption.
 
-- Average spending for Chinese visitors is approximately 260,000–270,000 yen per person.
-- Shopping is the highest spending category, representing the largest share of expenditure.
-- Accommodation and food are the next two highest categories, showing strong interest in comfortable stays and dining experiences.
-- Transportation accounts for a moderate portion of spending, reflecting the importance of regional mobility and transfer costs.
-- Experiences and leisure-related spending is present but smaller than shopping, accommodation, and food.
+- Combined spending from China and Hong Kong is approximately **23.9 trillion yen**, or roughly **29.3%** of total inbound travel spending.
+- China as a whole is the largest spending market, and this combined market status is critical for regional destinations like Fukui.
+- The overall inbound spending structure is:
+  - Accommodation: **33.6%**
+  - Shopping: **29.5%**
+  - Food & beverage: **21.5%**
+  - Transportation: **10.7%**
+  - Experience / service: **4.7%**
+- Shopping remains the highest spending category, but accommodation and food are also major shares, indicating that comfort and dining are key priorities.
+- Transportation and experience spending are smaller overall, but for regional destinations they are important levers to increase length of stay and local engagement.
 
 Implications for Fukui promotion:
 
-- Highlight distinctive local shopping products and souvenirs to meet the top spending preference.
-- Develop accommodation and dining packages that appeal to Chinese visitors, especially with seafood, local specialties, and onsen stays.
-- Position Fukui as a scenic, low-density destination with unique shopping and memorable cultural experiences.
-- Combine shopping, comfort, and experience offerings to capture Chinese visitor interest as a unified market.
+- Emphasize local shopping value: specialty foods, regional souvenirs, and Fukui-branded products that can be packaged as unique Chinese-market gifts.
+- Build accommodation-led offers: ryokan, onsen stays, and small luxury inns that appeal to visitors prioritizing comfort.
+- Strengthen food and dining messaging: local seafood, Echizen crab, soba, sweets, and farm-to-table experiences.
+- Leverage Fukui’s regional appeal by integrating transportation into itineraries: seamless access from Kanazawa, Osaka, and Tokyo plus local mobility solutions.
+- Expand experience-based tourism slowly: cultural tours, nature walks, temples, and hands-on local activities can boost the lower experience share while preserving Fukui’s calm image.
+
+Policy implication:
+
+- Treat the China market as a unified priority target for inbound promotion, with combined Mainland and Hong Kong demand driving product development.
+- Use the inbound spending composition to align regional marketing with Chinese visitor priorities: shopping, accommodation, and food first, then curated experiences.
+- Highlight Fukui as a quieter alternative to urban hotspots, while ensuring the region has accessible routes, hospitality capacity, and distinctive local products for high-spending visitors.
 
 ## Statistical Analysis
 
