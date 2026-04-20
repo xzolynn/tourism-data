@@ -155,3 +155,47 @@ This project analyzes Chinese visitors’ experiences in Fukui using AI-based te
 By combining qualitative insights with statistical summaries, the project proposes nudge-based strategies to increase visitor numbers. These strategies focus on promoting Fukui as a hidden gem destination, leveraging fandom tourism, and encouraging social media sharing.
 
 The expected outcome is to provide actionable recommendations for increasing Chinese visitors to Fukui and the Hokuriku region.
+
+## Ishikawa tourism insights
+
+Based on 2023 tourism data reported in 2024 for Ishikawa Prefecture (home to Kanazawa and other attractions):
+
+### 1. Visitor numbers and tourism performance
+- Ishikawa recorded approximately 12.5 million inbound visitors in 2023, marking a 25% increase from 2022 levels.
+- Domestic visitors totaled around 25 million, with strong performance in cultural and nature-based tourism.
+- Key attractions like Kanazawa Castle, Kenroku-en Garden, and Higashi Chaya District drove high engagement, with average visitor spend at 15,000–20,000 yen per person.
+- Overall tourism revenue reached 300 billion yen, boosted by group tours and seasonal festivals.
+
+### 2. Comparison with less-known regions like Fukui
+- Fukui Prefecture had about 2.8 million inbound visitors in 2023, significantly lower than Ishikawa's 12.5 million.
+- While Ishikawa focuses on high-profile cultural sites and urban appeal, Fukui emphasizes niche, nature-focused experiences with lower visitor density.
+- Fukui's tourism revenue was around 50 billion yen, far below Ishikawa's, reflecting its smaller scale and less mainstream positioning.
+- Ishikawa's growth is driven by accessibility and branding, whereas Fukui relies on word-of-mouth and emerging social media buzz.
+
+### 3. Reasons why Ishikawa attracts more tourists
+- Strong cultural heritage: Kanazawa's well-preserved Edo-era sites, gardens, and gold leaf crafts appeal to history and culture enthusiasts.
+- Accessibility: Excellent JR connections from Tokyo and Osaka, plus international flights to Komatsu Airport.
+- Marketing and branding: Ishikawa promotes "Little Kyoto" imagery, attracting repeat visitors and group tours.
+- Diverse offerings: Combination of urban exploration, nature (e.g., Noto Peninsula), and culinary experiences (e.g., seafood and local specialties).
+- Event-driven tourism: Festivals like the Kanazawa Hyakumangoku Matsuri draw crowds and media attention.
+
+### 4. Implications for regional tourism development
+- Regional collaboration: Prefectures like Ishikawa and Fukui can share resources, such as joint marketing campaigns for the Hokuriku region.
+- Infrastructure investment: Improve transport links (e.g., better rail connections) to distribute tourism flow more evenly.
+- Sustainable growth: Focus on low-impact tourism to preserve natural and cultural assets, avoiding overcrowding.
+- Diversification: Encourage niche experiences (e.g., wellness, eco-tourism) to attract new segments beyond cultural tourists.
+- Data-driven strategies: Use visitor analytics to tailor promotions, such as targeting Chinese markets with high-spend potential.
+
+### 5. How Fukui can benefit from Ishikawa's tourism flow
+- Proximity spillover: Many visitors to Ishikawa (e.g., Kanazawa) can extend trips to Fukui via JR lines, creating multi-day itineraries.
+- Shared branding: Position Fukui as a "quieter extension" of Ishikawa, offering nature and relaxation after urban exploration.
+- Cross-promotion: Collaborate on regional passes or packages that include both prefectures, e.g., "Hokuriku Discovery Tour" combining Kanazawa's culture with Fukui's coast and temples.
+- Leverage high-traffic hubs: Use Ishikawa's airports and stations as entry points, directing overflow visitors to Fukui's hidden gems.
+- Fan-driven synergy: Since both regions attract similar demographics (e.g., Chinese fans of K-pop idols like Riku), joint fandom-themed routes could boost Fukui's appeal.
+
+### Key statistical insights
+- Ishikawa's 12.5 million inbound visitors highlight its status as a regional tourism leader, with strong growth potential.
+- Fukui's smaller 2.8 million figure shows untapped potential in niche markets.
+- Reasons for Ishikawa's success include accessibility, cultural branding, and diverse attractions.
+- Regional development should prioritize collaboration, sustainability, and data use.
+- Fukui can capitalize on spillover effects by integrating with Ishikawa's flow through shared itineraries and promotions.
