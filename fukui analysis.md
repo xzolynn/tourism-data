@@ -87,6 +87,47 @@ Policy implication:
 - Use the inbound spending composition to align regional marketing with Chinese visitor priorities: shopping, accommodation, and food first, then curated experiences.
 - Highlight Fukui as a quieter alternative to urban hotspots, while ensuring the region has accessible routes, hospitality capacity, and distinctive local products for high-spending visitors.
 
+## Douyin visitor insights
+
+### High-frequency keywords
+- Fukui
+- niche / hidden gem / treasure
+- healing / quiet / relaxing
+- scenery / beautiful / stunning / happy
+- travel / guide / deep travel
+- JR / ticketing / pass / transport
+- onsen / Tojinbo / seaside
+- couple / romantic
+- Riku / Maeda Riku / hometown
+- countryside / small town / memories
+
+### Main themes of interest
+- Fukui as a hidden gem in the Kansai region.
+- Natural and coastal scenery: Tojinbo, seaside views, summer landscapes, forest walking, and rural scenery.
+- Travel convenience and route planning: JR lines, ticket purchase, pass use, and itinerary planning.
+- Romantic and couple travel: Fukui described as suitable for romantic getaways.
+- Local experience: onsen, local cuisine, historic streets, minshuku stays, crafts, and sake cellar visits.
+- Fandom-driven interest: Riku-related content increases emotional appeal and motivation.
+
+### Emotional sentiment
+- Healing and calm: comments often use “healing”, “quiet”, “slow life”, “relaxing”, “soft-hearted”.
+- Scenic admiration: viewers say “so beautiful”, “so stunning”, “so pretty”, “looks cinematic”.
+- Desire and intention: phrases like “want to go”, “must visit”, “next time I’ll go”.
+- Romantic warmth: couple journeys, idol-drama vibes, shared memories, and happiness.
+- Fan emotion: pilgrimage driven by Riku, idol-based check-ins, and hometown attachment.
+
+### Comparison with Xiaohongshu trends
+- Similarities: both platforms position Fukui as a niche, quiet, scenic alternative destination with strong emotional resonance.
+- Differences: Douyin emphasizes visual impact and instant emotional response, with shorter comments focused on scenery, healing, and transport convenience; Xiaohongshu tends to be more narrative, itinerary-rich, and personal/fandom storytelling.
+- Complementarity: Douyin is ideal for rapid inspiration and visual seeding, while Xiaohongshu is better for practical planning and deeper experience explanation.
+
+### Promotion implications
+- Short-video promotion should highlight Fukui’s “healing slow travel”, “niche hidden gem”, “romantic couple getaway”, and “JR accessibility”.
+- Emphasize transport and ticketing information to lower the barrier to actual travel.
+- Leverage Riku fandom by blending idol pilgrimage with countryside scenery in Fukui marketing.
+- Combine “natural scenery + onsen + food + small-town experience” to create a richer Fukui travel image.
+- Continue promoting “quiet, slow, emotionally resonant” as Fukui’s key differentiation from Kyoto and Tokyo.
+
 ## Statistical Analysis
 
 Based on the Xiaohongshu comment analysis:
