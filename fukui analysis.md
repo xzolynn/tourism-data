@@ -57,6 +57,24 @@ Selected high-engagement Xiaohongshu posts about Fukui, including comment sectio
 - Emotional responses dominate, with many comments expressing joy, tears, and a sense of healing, suggesting Fukui evokes deep personal connections, possibly due to its rural charm and association with Riku.
 - Practical travel advice is common, indicating growing interest in accessible, budget-friendly trips from major hubs like Osaka or Tokyo, with a focus on combining Fukui with nearby spots like Kanazawa.
 - Overall, trends point to Fukui's rise as a small-town escape for introspection and fandom, with potential for increased tourism through word-of-mouth and social media sharing.
+
+## China visitor spending insights
+
+Based on Japanese inbound tourism expenditure data for Chinese visitors (Mainland China and Hong Kong combined as a single China market):
+
+- Average spending for Chinese visitors is approximately 260,000–270,000 yen per person.
+- Shopping is the highest spending category, representing the largest share of expenditure.
+- Accommodation and food are the next two highest categories, showing strong interest in comfortable stays and dining experiences.
+- Transportation accounts for a moderate portion of spending, reflecting the importance of regional mobility and transfer costs.
+- Experiences and leisure-related spending is present but smaller than shopping, accommodation, and food.
+
+Implications for Fukui promotion:
+
+- Highlight distinctive local shopping products and souvenirs to meet the top spending preference.
+- Develop accommodation and dining packages that appeal to Chinese visitors, especially with seafood, local specialties, and onsen stays.
+- Position Fukui as a scenic, low-density destination with unique shopping and memorable cultural experiences.
+- Combine shopping, comfort, and experience offerings to capture Chinese visitor interest as a unified market.
+
 ## Statistical Analysis
 
 Based on the Xiaohongshu comment analysis:
