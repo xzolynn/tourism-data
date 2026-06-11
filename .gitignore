@@ -40,3 +40,5 @@ Thumbs.db
 # Data/temp files
 *.tmp
 *.log
+venv-annotate/
+mlit_data/
