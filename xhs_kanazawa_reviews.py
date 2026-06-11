@@ -9,10 +9,15 @@ Run:
     python3 xhs_kanazawa_reviews.py --output kanazawa_xhs_reviews.csv
 """
 import argparse
-import csv
 import time
 import urllib.parse
 from pathlib import Path
+
+from pipeline_io import UnsafeWriteError, safe_write_csv
+
+
+FIELDNAMES = ['note_id', 'title', 'note_url', 'author', 'author_url']
+KEY_FIELDS = ['note_id', 'note_url']
 
 
 def make_search_url(keyword: str) -> str:
@@ -76,13 +81,16 @@ def scroll_to_load(page, iterations=12, delay=1.5):
     return notes
 
 
-def save_csv(rows, output_path: Path):
-    output_path.parent.mkdir(parents=True, exist_ok=True)
-    with output_path.open('w', newline='', encoding='utf-8') as csvfile:
-        writer = csv.DictWriter(csvfile, fieldnames=['note_id', 'title', 'note_url', 'author', 'author_url'])
-        writer.writeheader()
-        for row in rows:
-            writer.writerow(row)
+def save_csv(rows, output_path: Path, *, replace=False, allow_shrink=False, allow_empty=False):
+    return safe_write_csv(
+        rows,
+        output_path,
+        FIELDNAMES,
+        key_fields=KEY_FIELDS,
+        merge_existing=not replace,
+        allow_empty=allow_empty,
+        allow_shrink=allow_shrink,
+    )
 
 
 def main():
@@ -92,6 +100,9 @@ def main():
     parser.add_argument('--scrolls', type=int, default=16, help='Number of scroll steps to load more results')
     parser.add_argument('--delay', type=float, default=1.8, help='Seconds to wait after each scroll')
     parser.add_argument('--headless', action='store_true', help='Run browser in headless mode')
+    parser.add_argument('--replace', action='store_true', help='Replace the output instead of merging with existing rows')
+    parser.add_argument('--allow-shrink', action='store_true', help='Allow an intentional replace that writes fewer rows than the existing CSV')
+    parser.add_argument('--allow-empty', action='store_true', help='Allow writing an intentionally empty CSV')
     args = parser.parse_args()
 
     from playwright.sync_api import sync_playwright
@@ -114,9 +125,19 @@ def main():
             notes = scroll_to_load(page, iterations=args.scrolls, delay=args.delay)
 
             print(f'Found {len(notes)} notes')
-            save_csv(notes, Path(args.output))
-            print(f'Saved to {args.output}')
+            total_rows, backup_path = save_csv(
+                notes,
+                Path(args.output),
+                replace=args.replace,
+                allow_shrink=args.allow_shrink,
+                allow_empty=args.allow_empty,
+            )
+            if backup_path:
+                print(f'Backed up previous output to {backup_path}')
+            print(f'Saved {total_rows} total rows to {args.output}')
 
+        except UnsafeWriteError as e:
+            raise SystemExit(str(e)) from e
         except Exception as e:
             print(f'Error: {e}')
         finally:

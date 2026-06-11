@@ -11,6 +11,8 @@ import re
 from collections import Counter, defaultdict
 from pathlib import Path
 
+from pipeline_io import UnsafeWriteError, safe_write_csv
+
 
 FAN_KEYWORDS = [
     'riku', 'wish', 'nctwish', 'nct', '粉丝', '打卡', '巡礼', '同款', '偶像', '家乡', '朝圣',
@@ -135,11 +137,15 @@ def save_classification(notes, path: Path):
     if not notes:
         return
     fieldnames = list(notes[0].keys())
-    with path.open('w', newline='', encoding='utf-8') as f:
-        writer = csv.DictWriter(f, fieldnames=fieldnames)
-        writer.writeheader()
-        for note in notes:
-            writer.writerow(note)
+    return safe_write_csv(
+        notes,
+        path,
+        fieldnames,
+        key_fields=['note_id', 'note_url'],
+        merge_existing=False,
+        allow_empty=False,
+        allow_shrink=False,
+    )
 
 
 def main():
@@ -166,8 +172,17 @@ def main():
         note['travel_score'] = travel_score
         classified.append(note)
 
-    save_classification(classified, Path(args.output))
-    print(f'Classification output saved to {args.output}')
+    try:
+        save_result = save_classification(classified, Path(args.output))
+    except UnsafeWriteError as exc:
+        raise SystemExit(str(exc)) from exc
+    if save_result is None:
+        print(f'Classification output not written because {args.input} contained no rows')
+        return
+    total_rows, backup_path = save_result
+    if backup_path:
+        print(f'Backed up previous classification output to {backup_path}')
+    print(f'Classification output saved to {args.output} ({total_rows} rows)')
 
 
 if __name__ == '__main__':
