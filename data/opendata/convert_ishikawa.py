@@ -1,7 +1,6 @@
 import csv
 import json
 import os
-import codecs
 from datetime import datetime
 from pathlib import Path
 from safe_io import replace_with_backup, safe_write_text
@@ -350,7 +349,7 @@ def convert_ishikawa_csv():
     
     for encoding in encodings:
         try:
-            with codecs.open(input_csv, 'r', encoding=encoding) as f:
+            with open(input_csv, 'r', encoding=encoding) as f:
                 reader = csv.DictReader(f)
                 input_headers = reader.fieldnames
                 rows = list(reader)

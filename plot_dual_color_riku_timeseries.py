@@ -12,12 +12,12 @@ INPUT_FILES = [
 
 EVENT_MONTH_INDICES = [2, 10, 11, 16, 19, 22]
 EVENT_ANNOTATIONS = {
-    2: "🎂 Riku's Birthday",
-    10: '💿 New MV',
-    11: "🎂 Riku's Birthday",
-    16: '💿 New MV',
-    19: "🎂 Riku's Birthday",
-    22: '💿 New MV'
+    2: "Riku Birthday",
+    10: 'New MV',
+    11: "Riku Birthday",
+    16: 'New MV',
+    19: "Riku Birthday",
+    22: 'New MV'
 }
 
 
@@ -86,7 +86,7 @@ def plot_dual_color(df):
             fontweight='bold', color='#333333')
 
     for _, row in df[df['IsEvent']].iterrows():
-        annotation = EVENT_ANNOTATIONS.get(row['Month_Number'], '🎉 Event')
+        annotation = EVENT_ANNOTATIONS.get(row['Month_Number'], 'Event')
         ax.text(row['Month_Number'] - 1, row['Visitors'] + max(df['Visitors']) * 0.03,
                 annotation, ha='center', va='bottom', fontsize=11)
 

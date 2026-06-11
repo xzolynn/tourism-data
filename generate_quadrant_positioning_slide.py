@@ -22,7 +22,7 @@ df['Visitor_Share_%'] = (df['Chinese_Visitors'] / df['Chinese_Visitors'].sum()) 
 df['Spend_Share_%'] = (df['Total_Spending_Million'] / df['Total_Spending_Million'].sum()) * 100
 
 # Plot settings
-plt.rcParams['font.sans-serif'] = ['SimHei', 'DejaVu Sans']
+plt.rcParams['font.sans-serif'] = ['Arial Unicode MS', 'Hiragino Sans', 'Noto Sans CJK JP', 'SimHei', 'DejaVu Sans']
 plt.rcParams['axes.unicode_minus'] = False
 
 fig, ax = plt.subplots(figsize=(14, 9), constrained_layout=True)
@@ -38,7 +38,7 @@ ax.scatter(df['Chinese_Visitors'], df['Avg_Spend_JPY'],
 
 for i, row in df.iterrows():
     ax.text(row['Chinese_Visitors'] * 1.03, row['Avg_Spend_JPY'] * 0.998,
-            f"{row['Prefecture']}\n{row['Chinese_Visitors']:,}人\n¥{row['Avg_Spend_JPY']:,}",
+            f"{row['Prefecture']}\n{row['Chinese_Visitors']:,} visitors\n¥{row['Avg_Spend_JPY']:,}",
             fontsize=11, fontweight='bold', va='center')
 
 # Add quadrant lines
@@ -46,13 +46,13 @@ ax.axvline(x=x_mid, color='gray', linestyle='--', linewidth=1.2)
 ax.axhline(y=y_mid, color='gray', linestyle='--', linewidth=1.2)
 
 # Quadrant labels
-ax.text(0.96, 0.92, 'High Value / High Volume\n(区域领导者)', transform=ax.transAxes,
+ax.text(0.96, 0.92, 'High Value / High Volume\nRegional Leader', transform=ax.transAxes,
         ha='right', va='center', fontsize=12, fontweight='bold', color='#4ECDC4')
-ax.text(0.03, 0.92, 'High Value / Low Volume\n(福井: 目标增长)', transform=ax.transAxes,
+ax.text(0.03, 0.92, 'High Value / Low Volume\nFukui: Growth Target', transform=ax.transAxes,
         ha='left', va='center', fontsize=12, fontweight='bold', color='#FF6B6B')
-ax.text(0.03, 0.08, 'Low Value / Low Volume\n(富山: 开发潜力)', transform=ax.transAxes,
+ax.text(0.03, 0.08, 'Low Value / Low Volume\nToyama: Development Potential', transform=ax.transAxes,
         ha='left', va='center', fontsize=12, fontweight='bold', color='#45B7D1')
-ax.text(0.96, 0.08, 'Low Value / High Volume\n(未出现)', transform=ax.transAxes,
+ax.text(0.96, 0.08, 'Low Value / High Volume\nNot Present', transform=ax.transAxes,
         ha='right', va='center', fontsize=12, fontweight='bold', color='gray')
 
 ax.set_title('Hokuriku Chinese Visitor Market Positioning\nVolume vs. Value Quadrant', fontsize=20, fontweight='bold')

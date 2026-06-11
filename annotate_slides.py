@@ -21,6 +21,12 @@ try:
 except Exception:
     font = ImageFont.load_default()
 
+def measure_text(draw, text, font):
+    if hasattr(draw, 'textbbox'):
+        left, top, right, bottom = draw.textbbox((0, 0), text, font=font)
+        return right - left, bottom - top
+    return draw.textsize(text, font=font)
+
 for img_name in images:
     if not os.path.exists(img_name):
         print(f"Missing: {img_name} - skipping")
@@ -29,7 +35,7 @@ for img_name in images:
     w, h = im.size
     overlay = Image.new('RGBA', im.size, (255,255,255,0))
     draw = ImageDraw.Draw(overlay)
-    text_w, text_h = draw.textsize(note, font=font)
+    text_w, text_h = measure_text(draw, note, font)
     padding = 10
     x = (w - text_w) // 2
     y = h - text_h - padding

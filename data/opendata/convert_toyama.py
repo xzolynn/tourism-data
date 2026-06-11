@@ -1,7 +1,6 @@
 import csv
 import json
 import os
-import codecs
 import shutil
 from datetime import datetime
 from pathlib import Path
@@ -304,7 +303,7 @@ def convert_toyama_csv():
     output_headers = list(mapping.keys())
     
     # 入力CSVを読み込み（BOMを自動除去）
-    with codecs.open(input_csv, 'r', encoding='utf-8-sig') as f:
+    with open(input_csv, 'r', encoding='utf-8-sig') as f:
         reader = csv.DictReader(f)
         input_headers = reader.fieldnames
         rows = list(reader)
@@ -393,31 +392,31 @@ def convert_toyama_csv():
                 else:
                     # 入力CSVに項目が存在しない場合は空文字を出力
                     output_row.append("")
+            else:
+                # マッピングから対応する入力項目名を取得
+                input_field = mapping[header]
+
+                if input_field == "":
+                    # マッピングが空文字の場合は空文字を出力
+                    output_row.append("")
+                elif input_field in row:
+                    # 入力CSVに項目が存在する場合はその値を出力
+                    value = row[input_field]
+
+                    # 「アンケート回答日」の場合は日付形式を統一
+                    if header == "アンケート回答日":
+                        value = format_date_string(value)
+                    # 性別の場合は男性→男、女性→女に変換
+                    elif header == "性別":
+                        value = convert_gender(value)
+                    # 金額項目の場合は「以上」の後ろに半角スペースを追加
+                    elif header in ["交通費", "飲食費", "宿泊費", "買い物費", "観光費"]:
+                        value = format_amount_field(value)
+
+                    output_row.append(value)
                 else:
-                    # マッピングから対応する入力項目名を取得
-                    input_field = mapping[header]
-                    
-                    if input_field == "":
-                        # マッピングが空文字の場合は空文字を出力
-                        output_row.append("")
-                    elif input_field in row:
-                        # 入力CSVに項目が存在する場合はその値を出力
-                        value = row[input_field]
-                        
-                        # 「アンケート回答日」の場合は日付形式を統一
-                        if header == "アンケート回答日":
-                            value = format_date_string(value)
-                        # 性別の場合は男性→男、女性→女に変換
-                        elif header == "性別":
-                            value = convert_gender(value)
-                        # 金額項目の場合は「以上」の後ろに半角スペースを追加
-                        elif header in ["交通費", "飲食費", "宿泊費", "買い物費", "観光費"]:
-                            value = format_amount_field(value)
-                        
-                        output_row.append(value)
-                    else:
-                        # 入力CSVに項目が存在しない場合は空文字を出力
-                        output_row.append("")
+                    # 入力CSVに項目が存在しない場合は空文字を出力
+                    output_row.append("")
             
         converted_rows.append(output_row)
 

@@ -6,6 +6,7 @@ convert_toyama.py, convert_ishikawa.py, convert_fukui.pyを順に実行し、
 その結果のCSVファイルをマージするプログラム
 """
 
+import argparse
 import csv
 import os
 import sys
@@ -79,19 +80,27 @@ class SurveyMerger:
         return True
     
     def find_csv_files(self) -> List[Path]:
-        """outputフォルダ配下のCSVファイルを再帰的に検索"""
+        """マージ対象の変換済みCSVファイルを検索"""
         csv_files = []
-        for file_path in self.input_dir.rglob("*.csv"):
-            csv_files.append(file_path)
-        
+
+        for prefecture in ["toyama", "ishikawa", "fukui"]:
+            prefecture_dir = self.input_dir / prefecture
+            merged_file = prefecture_dir / f"{prefecture}_converted.csv"
+            if merged_file.exists():
+                csv_files.append(merged_file)
+                continue
+
+            yearly_files = sorted(prefecture_dir.glob(f"{prefecture}_converted_[0-9][0-9][0-9][0-9].csv"))
+            csv_files.extend(yearly_files)
+
         if not csv_files:
-            print(f"エラー: '{self.input_dir}' 配下にCSVファイルが見つかりません。")
+            print(f"エラー: '{self.input_dir}' 配下に変換済みCSVファイルが見つかりません。")
             return []
-        
-        print(f"見つかったCSVファイル: {len(csv_files)}件")
+
+        print(f"マージ対象CSVファイル: {len(csv_files)}件")
         for file_path in csv_files:
             print(f"  - {file_path}")
-        
+
         return csv_files
     
     def read_csv_data(self, file_path: Path) -> Tuple[List[str], List[List[str]]]:
@@ -313,16 +322,19 @@ class SurveyMerger:
         print("  既存の研究出力を保護するため、物理削除は行いません。")
         print()
     
-    def run(self):
+    def run(self, skip_download: bool = False):
         """メイン処理"""
         print("=== アンケートCSVマージプログラム ===")
         print()
-        
+
         # 1. データのダウンロード
-        if not self.downloader.download_all_data():
+        if skip_download:
+            print("=== データダウンロード ===")
+            print("  --skip-download が指定されたため、既存の入力ファイルを使用します。")
+        elif not self.downloader.download_all_data():
             print("エラー: データのダウンロードに失敗したため、既存データを保護して処理を停止します。")
             return False
-        
+
         print()
         
         # 2. 出力ディレクトリのクリーンアップ（古いファイルを削除）
@@ -349,8 +361,16 @@ class SurveyMerger:
 
 def main():
     """メイン関数"""
+    parser = argparse.ArgumentParser(description="アンケートCSVを変換・マージします。")
+    parser.add_argument(
+        "--skip-download",
+        action="store_true",
+        help="ネットワークから再ダウンロードせず、既存の input/ ファイルを使います。",
+    )
+    args = parser.parse_args()
+
     merger = SurveyMerger()
-    success = merger.run()
+    success = merger.run(skip_download=args.skip_download)
     
     if success:
         print("\nプログラムが正常に完了しました。")

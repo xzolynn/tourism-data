@@ -21,7 +21,7 @@ data = {
 df = pd.DataFrame(data)
 
 # 设置中文字体
-plt.rcParams['font.sans-serif'] = ['DejaVu Sans', 'SimHei']
+plt.rcParams['font.sans-serif'] = ['Arial Unicode MS', 'Hiragino Sans', 'Noto Sans CJK JP', 'SimHei', 'DejaVu Sans']
 plt.rcParams['axes.unicode_minus'] = False
 
 # ============================================================================
@@ -131,10 +131,10 @@ for i, (idx, row) in enumerate(df.iterrows()):
     
     # Add ranking
     if row['Avg_Spend_JPY'] == df['Avg_Spend_JPY'].max():
-        ax.text(i, height - 20, '🥇 HIGHEST', 
+        ax.text(i, height - 20, '#1 HIGHEST',
                 ha='center', va='top', fontweight='bold', fontsize=9, color='gold')
     elif row['Avg_Spend_JPY'] == df['Avg_Spend_JPY'].min():
-        ax.text(i, height - 20, '🥉 LOWEST', 
+        ax.text(i, height - 20, '#3 LOWEST',
                 ha='center', va='top', fontweight='bold', fontsize=9, color='lightblue')
 
 # Add average line

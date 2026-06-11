@@ -7,8 +7,12 @@ Date: 2026
 
 import pandas as pd
 import numpy as np
+import os
 from scipy import stats
 from scipy.stats import chi2_contingency, ttest_ind, f_oneway
+
+os.environ.setdefault("LOKY_MAX_CPU_COUNT", "1")
+
 from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
 import matplotlib.pyplot as plt
@@ -362,7 +366,7 @@ def design_nudge_interventions():
         revenue = additional_conversions * 250000
         roi = ((revenue - cost) / cost) * 100 if cost > 0 else 0
         
-        print(f"{intervention:<50} {baseline:.1%}{'<':<13} {new_conversion:.1%}{'<':<13} {roi:>8.0f}%")
+        print(f"{intervention:<50} {baseline:<15.1%} {new_conversion:<15.1%} {roi:>8.0f}%")
     
     print(f"\nKey Insight:")
     print(f"  Choice architecture and scarcity nudges show highest ROI potential")

@@ -1,7 +1,6 @@
 import csv
 import json
 import os
-import codecs
 import re
 from datetime import datetime
 from pathlib import Path
@@ -283,11 +282,11 @@ def check_information_source_flags(information_source):
     
     return result
 
-def convert_fukui_csv():
+def convert_fukui_csv(input_csv=None, output_csv=None):
     # ファイルパス
-    input_csv = BASE_DIR / "input/fukui/fukui_formatted.csv"
+    input_csv = Path(input_csv) if input_csv else BASE_DIR / "input/fukui/fukui_formatted.csv"
     mapping_json = BASE_DIR / "input/fukui/column_mapping_fukui.json"
-    output_csv = BASE_DIR / "output/fukui/fukui_converted.csv"
+    output_csv = Path(output_csv) if output_csv else BASE_DIR / "output/fukui/fukui_converted.csv"
     
     # JSONマッピングファイルを読み込み
     with open(mapping_json, 'r', encoding='utf-8') as f:
@@ -304,7 +303,7 @@ def convert_fukui_csv():
     
     for encoding in encodings:
         try:
-            with codecs.open(input_csv, 'r', encoding=encoding) as f:
+            with open(input_csv, 'r', encoding=encoding) as f:
                 reader = csv.DictReader(f)
                 input_headers = reader.fieldnames
                 rows = list(reader)
@@ -444,22 +443,41 @@ def main():
     """
     メイン処理
     """
-    # 福井CSVファイルの前処理を実行
-    input_csv = BASE_DIR / "input/fukui/fukui.csv"
-    if os.path.exists(input_csv):
+    input_dir = BASE_DIR / "input/fukui"
+    output_dir = BASE_DIR / "output/fukui"
+    merged_input = input_dir / "fukui.csv"
+    yearly_inputs = sorted(input_dir.glob("fukui_[0-9][0-9][0-9][0-9].csv"))
+
+    if os.path.exists(merged_input):
         print("福井CSVファイルの前処理を開始します...")
-        if process_fukui_csv(input_csv):
+        if process_fukui_csv(merged_input):
             print("福井CSVファイルの前処理が完了しました。")
         else:
             print("福井CSVファイルの前処理に失敗しました。")
             return
-    else:
-        print(f"入力ファイルが見つかりません: {input_csv}")
+        print("CSV変換を開始します...")
+        convert_fukui_csv()
         return
-    
-    # CSV変換を実行
-    print("CSV変換を開始します...")
-    convert_fukui_csv()
+
+    if not yearly_inputs:
+        print(f"入力ファイルが見つかりません: {merged_input}")
+        print(f"年別入力ファイルも見つかりません: {input_dir / 'fukui_YYYY.csv'}")
+        return
+
+    for input_csv in yearly_inputs:
+        year = input_csv.stem.removeprefix("fukui_")
+        formatted_csv = input_csv.with_name(f"{input_csv.stem}_formatted.csv")
+        output_csv = output_dir / f"fukui_converted_{year}.csv"
+
+        print(f"福井CSVファイルの前処理を開始します: {input_csv.name}")
+        if process_fukui_csv(input_csv):
+            print(f"福井CSVファイルの前処理が完了しました: {formatted_csv.name}")
+        else:
+            print(f"福井CSVファイルの前処理に失敗しました: {input_csv.name}")
+            return
+
+        print(f"CSV変換を開始します: {input_csv.name}")
+        convert_fukui_csv(input_csv=formatted_csv, output_csv=output_csv)
 
 if __name__ == "__main__":
     main()

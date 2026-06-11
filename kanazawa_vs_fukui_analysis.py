@@ -139,7 +139,7 @@ def analyze_reviews(data, name):
 
     # Infrastructure proportion
     infra_proportion = sum(infra_counts.values()) / len(data) if data else 0
-    print(".3f")
+    print(f"Infrastructure mentions per review: {infra_proportion:.3f}")
 
     return infra_counts, tourism_counts, infra_proportion
 
@@ -222,7 +222,7 @@ def main():
     print("\nChi-square test for infrastructure keyword distributions:")
     chi2, p_chi2 = chi_square_test(kanazawa_infra, fukui_infra, len(KANAZAWA_MOCK_DATA), len(FUKUI_MOCK_DATA))
     if chi2 is not None:
-        print(".3f")
+        print(f"Chi-square statistic: {chi2:.3f}")
         print(f"P-value: {p_chi2:.3f}")
         if p_chi2 < 0.05:
             print("Significant difference in keyword distributions!")
@@ -237,7 +237,7 @@ def main():
         kanazawa_infra_prop, len(KANAZAWA_MOCK_DATA),
         fukui_infra_prop, len(FUKUI_MOCK_DATA)
     )
-    print(".3f")
+    print(f"T-statistic: {t_stat:.3f}")
     print(f"P-value: {p_ttest:.3f}")
     if p_ttest < 0.05:
         print("Significant difference in infrastructure mention proportions!")
